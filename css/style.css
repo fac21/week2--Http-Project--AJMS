@@ -27,7 +27,7 @@ main {
 
 .flex-column {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
@@ -44,7 +44,7 @@ main {
   width: 100%;
 }
 
-.content__inpunt {
+.content__input {
   height: 15vh;
 }
 
