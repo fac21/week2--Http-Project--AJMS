@@ -21,6 +21,7 @@ body {
 
 main {
   height: 80vh;
+  max-width: 600px;
   row-gap: var(--gap-lg);
 }
 
@@ -40,4 +41,17 @@ main {
 
 .content {
   background-color: var(--primary-colour);
+  width: 100%;
+}
+
+.content__inpunt {
+  height: 15vh;
+}
+
+.content__status {
+  height: 15vh;
+}
+
+.content__output {
+  height: 30vh;
 }
