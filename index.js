@@ -26,6 +26,8 @@ let result;
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  document.querySelector("output").innerText = "Loading..."
+
   companyName = document.querySelector("#name").value.toUpperCase();
 
   let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
