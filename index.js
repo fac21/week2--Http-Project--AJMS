@@ -32,14 +32,13 @@ let result;
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  
   companyName = document.querySelector("#name").value.toUpperCase();
 
   let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
   let encodedString = btoa(api);
   // let proxyUrl = "https://cors-anywhere.herokuapp.com/";
   // let searchQuery = "FAC"
-  let url = `https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
+  let url =`https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
 
   fetch(url, {
     method: "GET",
@@ -110,9 +109,10 @@ const generateLogo = () => {
   fetchImages(companyName)
     .then((json) => getRandomPhoto(json.photos))
     .then((imageUrl) => changeImageSrc(imageUrl))
+    .then(() => {
+      outputText.textContent = companyName;
+    })
     .catch((error) => console.log(error));
-
-  outputText.textContent = companyName;
 };
 
 generateLogoBtn.addEventListener("click", generateLogo);
