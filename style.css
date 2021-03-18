@@ -1,7 +1,8 @@
 :root {
-  --main-bg: rgb(223, 223, 223);
-  --primary-colour: pink;
-  --secondary-colour: yellow;
+  --main-bg: hsl(20, 100%, 97%);
+  --primary-colour: hsl(16, 33%, 78%);
+  --secondary-colour: hsl(16, 32%, 63%);
+  --font-colour: hsl(16, 95%, 8%);
   --gap-lg: 3rem;
   --gap-std: 2rem;
   --gap-sm: 1rem;
@@ -62,13 +63,18 @@ main {
   display: none;
 }
 
+
+h1, label, input p, p, h2 {
+  color: var(--font-colour);
+}
+
 /* .content__output--figure {
   max-width: 70%;
   max-height: 100%; 
 } */
 
 #content__output--img {
-  max-height: 100%; 
+  max-height: 100%;
   object-fit: cover;
 }
 
