@@ -20,7 +20,13 @@ fetch("https://api.company-information.service.gov.uk/company/00000006", {
 
 //Company name API
 const form = document.querySelector("form");
+const outputText = document.getElementById("companyName");
 let companyName;
+
+const pexelApi = "563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d";
+const defaultSearch = "cat";
+const generateLogoBtn = document.getElementById("btn__generate");
+const outputImg = document.getElementById("content__output--img");
 
 let result;
 form.addEventListener("submit", (event) => {
@@ -34,7 +40,7 @@ form.addEventListener("submit", (event) => {
   let encodedString = btoa(api);
   // let proxyUrl = "https://cors-anywhere.herokuapp.com/";
   // let searchQuery = "FAC"
-  let url = `https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
+  let url =`https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
 
   fetch(url, {
     method: "GET",
@@ -70,10 +76,6 @@ function displayCompanyOutput() {
 }
 
 //Image API
-const pexelApi = "563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d";
-const defaultSearch = "cat";
-const generateLogoBtn = document.getElementById("btn__generate");
-const outputImg = document.getElementById("content__output--img");
 
 //Get random image
 const getRandomPhoto = (photos) => {
@@ -109,6 +111,9 @@ const generateLogo = () => {
   fetchImages(companyName)
     .then((json) => getRandomPhoto(json.photos))
     .then((imageUrl) => changeImageSrc(imageUrl))
+    .then(() => {
+      outputText.textContent = companyName;
+    })
     .catch((error) => console.log(error));
 };
 
