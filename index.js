@@ -57,6 +57,7 @@ form.addEventListener("submit", (event) => {
 
 function displayCompanyOutput() {
   const companyOutput = document.querySelector("output");
+  companyOutput.innerHTML = "";
   let companyResult = document.createElement("article");
   let buttonGenerate = document.querySelector(".btn__generate");
   if (result.length === 0) {
