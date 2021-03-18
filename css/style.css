@@ -55,3 +55,7 @@ main {
 .content__output {
   height: 30vh;
 }
+
+.hidden {
+  display: none;
+}
