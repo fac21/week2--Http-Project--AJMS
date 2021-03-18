@@ -19,6 +19,7 @@ fetch("https://api.company-information.service.gov.uk/company/00000006", {
 */
 
 const form = document.querySelector("form");
+let result;
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const companyName = document.querySelector('#name').value.toUpperCase();
@@ -40,14 +41,28 @@ form.addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((json) => {
       // console.log(json.items)
-      let result = json.items.filter((companyObj) => {
+      result = json.items.filter((companyObj) => {
         return companyObj.title.includes(companyName)
       });
       console.log(result);
+      displayCompanyOutput();
     })
     .catch((error) => console.log(error));
   })
 
+function displayCompanyOutput() {
+  const companyOutput = document.querySelector('output');
+  let companyResult = document.createElement('article');
+  let buttonGenerate = document.querySelector('.btn__generate');
+  if (result.length === 0) {
+    companyResult.innerText = 'Success';
+    buttonGenerate.classList.remove('hidden');
+  } else {
+    companyResult.innerText = 'That name is not available'
+  }
+  companyOutput.appendChild(companyResult);
+}
+  
   //Image API
   const pexelApi = '563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d'
   const searchTerm = 'panda'
