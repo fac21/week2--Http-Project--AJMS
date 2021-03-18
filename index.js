@@ -74,7 +74,7 @@ const outputFigure = document.querySelector("figure");
 const getRandomPhoto = (photos) => {
   const randomNumber = Math.floor(Math.random() * photos.length);
   const randomImageUrl = photos[randomNumber].src.medium;
-  // console.log("Function getRandomPhoto", randomImageUrl);
+  console.log("Function getRandomPhoto", randomImageUrl);
   return randomImageUrl;
 };
 
