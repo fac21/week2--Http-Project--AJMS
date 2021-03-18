@@ -83,8 +83,6 @@ const getRandomPhoto = (photos) => {
 
   const randomNumber = Math.floor(Math.random() * photos.length);
   const randomImageUrl = photos[randomNumber].src.medium;
-
-  // console.log("Function getRandomPhoto", randomImageUrl);
   return randomImageUrl;
 };
 
