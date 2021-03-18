@@ -31,6 +31,8 @@ Our website is ideal for potential entrepreneurs who would like to start thinkin
 
 Based on the user's query name, the site checks the Company House API to see if a company with that name exists. If the name is available, the image API is queried to suggest a possible logo. 
 
+![](images/loading.png)
+
 ## Initial Design 🎨
 
 We designed the site using Figma:
@@ -45,7 +47,7 @@ We designed the site using Figma:
 ## Stretch Goals 🥅
 
 - 404 error handler
-- Loading indicator
+- Animated loading indicator
 - Automatic suggestions for other company names
 
 ## Planning 📝
