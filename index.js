@@ -71,7 +71,7 @@ function displayCompanyOutput() {
 const pexelApi = "563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d";
 const defaultSearch = "cat";
 const generateLogoBtn = document.getElementById("btn__generate");
-const outputFigure = document.querySelector("figure");
+const outputImg = document.getElementById("content__output--img");
 
 //Get random image
 const getRandomPhoto = (photos) => {
@@ -89,7 +89,7 @@ const getRandomPhoto = (photos) => {
 };
 
 const changeImageSrc = (imageUrl) => {
-  outputFigure.innerHTML = `<img src="${imageUrl}" alt="" />`;
+  outputImg.src = imageUrl;
 };
 
 const fetchImages = (searchTerm) => {
