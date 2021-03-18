@@ -20,10 +20,14 @@ fetch("https://api.company-information.service.gov.uk/company/00000006", {
 
 //Company name API
 const form = document.querySelector("form");
+let companyName;
+
 let result;
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const companyName = document.querySelector("#name").value.toUpperCase();
+
+  companyName = document.querySelector("#name").value.toUpperCase();
+
   let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
   let encodedString = btoa(api);
   let proxyUrl = "https://cors-anywhere.herokuapp.com/";
@@ -42,8 +46,8 @@ form.addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((json) => {
       // console.log(json.items)
-     result = json.items.filter((companyObj) => {
-        return companyObj.title.includes(companyName)
+      result = json.items.filter((companyObj) => {
+        return companyObj.title.includes(companyName);
       });
       console.log(result);
       displayCompanyOutput();
@@ -52,28 +56,36 @@ form.addEventListener("submit", (event) => {
 });
 
 function displayCompanyOutput() {
-  const companyOutput = document.querySelector('output');
-  let companyResult = document.createElement('article');
-  let buttonGenerate = document.querySelector('.btn__generate');
+  const companyOutput = document.querySelector("output");
+  companyOutput.innerHTML = "";
+  let companyResult = document.createElement("article");
+  let buttonGenerate = document.querySelector(".btn__generate");
   if (result.length === 0) {
-    companyResult.innerText = 'Success';
-    buttonGenerate.classList.remove('hidden');
+    companyResult.innerText = "Success";
+    buttonGenerate.classList.remove("hidden");
   } else {
-    companyResult.innerText = 'That name is not available'
+    companyResult.innerText = "That name is not available";
   }
   companyOutput.appendChild(companyResult);
 }
 
 //Image API
 const pexelApi = "563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d";
-const searchTerm = "panda";
+const defaultSearch = "cat";
 const generateLogoBtn = document.getElementById("btn__generate");
 const outputFigure = document.querySelector("figure");
 
 //Get random image
 const getRandomPhoto = (photos) => {
+  if (photos.length == 0) {
+    return fetchImages(defaultSearch).then((json) =>
+      getRandomPhoto(json.photos)
+    );
+  }
+
   const randomNumber = Math.floor(Math.random() * photos.length);
   const randomImageUrl = photos[randomNumber].src.medium;
+
   // console.log("Function getRandomPhoto", randomImageUrl);
   return randomImageUrl;
 };
@@ -82,22 +94,24 @@ const changeImageSrc = (imageUrl) => {
   outputFigure.innerHTML = `<img src="${imageUrl}" alt="" />`;
 };
 
-const generateLogo = () => {
-  // Get the random photo
+const fetchImages = (searchTerm) => {
+  return fetch(
+    `https://api.pexels.com/v1/search?query=${searchTerm}&per_page=80`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: pexelApi,
+        "Content-Type": "application/json",
+      },
+    }
+  ).then((response) => response.json());
+};
 
-  fetch(`https://api.pexels.com/v1/search?query=${searchTerm}&per_page=80`, {
-    method: "GET",
-    headers: {
-      Authorization: pexelApi,
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
+const generateLogo = () => {
+  fetchImages(companyName)
     .then((json) => getRandomPhoto(json.photos))
     .then((imageUrl) => changeImageSrc(imageUrl))
     .catch((error) => console.log(error));
-
-  //
 };
 
 generateLogoBtn.addEventListener("click", generateLogo);
