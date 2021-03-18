@@ -59,7 +59,7 @@ function displayCompanyOutput() {
   let companyResult = document.createElement("article");
   let buttonGenerate = document.querySelector(".btn__generate");
   if (result.length === 0) {
-    companyResult.innerText = "Success";
+    companyResult.innerText = "Yay! That name is available.";
     buttonGenerate.classList.remove("hidden");
   } else {
     companyResult.innerText = "That name is not available";

@@ -85,9 +85,10 @@ h1, label, input p, p, h2 {
 }
 
 .companyName {
-  display: flex;
+  /* display: flex;
   align-self: center;
-  word-wrap: normal;
+  word-wrap: normal; */
+  text-align: center;
 }
 
 .margin-sm {
