@@ -20,12 +20,19 @@ fetch("https://api.company-information.service.gov.uk/company/00000006", {
 
 //Company name API
 const form = document.querySelector("form");
+const outputText = document.getElementById("companyName");
 let companyName;
+
+const pexelApi = "563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d";
+const defaultSearch = "cat";
+const generateLogoBtn = document.getElementById("btn__generate");
+const outputImg = document.getElementById("content__output--img");
 
 let result;
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  
   companyName = document.querySelector("#name").value.toUpperCase();
 
   let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
@@ -68,10 +75,6 @@ function displayCompanyOutput() {
 }
 
 //Image API
-const pexelApi = "563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d";
-const defaultSearch = "cat";
-const generateLogoBtn = document.getElementById("btn__generate");
-const outputImg = document.getElementById("content__output--img");
 
 //Get random image
 const getRandomPhoto = (photos) => {
@@ -108,6 +111,8 @@ const generateLogo = () => {
     .then((json) => getRandomPhoto(json.photos))
     .then((imageUrl) => changeImageSrc(imageUrl))
     .catch((error) => console.log(error));
+
+  outputText.textContent = companyName;
 };
 
 generateLogoBtn.addEventListener("click", generateLogo);
