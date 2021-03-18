@@ -6,7 +6,7 @@
   --gap-lg: 3rem;
   --gap-std: 2rem;
   --gap-sm: 1rem;
-  --main-font: 'Lobster';
+  --main-font: "Lobster";
 }
 
 * {
@@ -19,6 +19,11 @@ body {
   height: 100vh;
   background-color: var(--main-bg);
   row-gap: var(--gap-lg);
+}
+header {
+  height: 20vh;
+  width: 100%;
+  padding-top: 2.5rem;
 }
 
 main {
@@ -47,11 +52,11 @@ main {
 }
 
 .content__input {
-  height: 15vh;
+  min-height: 15vh;
 }
 
 .content__status {
-  height: 15vh;
+  min-height: 15vh;
 }
 
 .content__output {
@@ -70,7 +75,11 @@ h1 {
   color: var(--font-colour);
 }
 
-h1, label, input p, p, h2 {
+h1,
+label,
+input p,
+p,
+h2 {
   color: var(--font-colour);
 }
 
@@ -80,17 +89,34 @@ h1, label, input p, p, h2 {
 } */
 
 #content__output--img {
-  max-height: 100%;
+  width: 50%;
   object-fit: cover;
 }
 
 .companyName {
-  /* display: flex;
-  align-self: center;
-  word-wrap: normal; */
-  text-align: center;
+
 }
 
 .margin-sm {
   margin: var(--gap-sm);
+}
+.btn {
+  border: none;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: green;
+  color: white;
+}
+
+.content__output--aside {
+  width: 50%;
+  height: 100%;
+  padding: 2rem;
+}
+
+footer{
+  margin-bottom: 2rem;
 }
