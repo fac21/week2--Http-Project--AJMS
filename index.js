@@ -30,11 +30,9 @@ form.addEventListener("submit", (event) => {
 
   let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
   let encodedString = btoa(api);
-  let proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  // let proxyUrl = "https://cors-anywhere.herokuapp.com/";
   // let searchQuery = "FAC"
-  let url =
-    proxyUrl +
-    `https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
+  let url = `https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
 
   fetch(url, {
     method: "GET",
