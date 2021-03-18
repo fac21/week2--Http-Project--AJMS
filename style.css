@@ -2,6 +2,7 @@
   --main-bg: hsl(20, 100%, 97%);
   --primary-colour: hsl(16, 33%, 78%);
   --secondary-colour: hsl(16, 32%, 63%);
+  --font-colour: hsl(16, 95%, 8%);
   --gap-lg: 3rem;
   --gap-std: 2rem;
   --gap-sm: 1rem;
@@ -58,4 +59,10 @@ main {
 
 .hidden {
   display: none;
+}
+
+h1,
+label,
+input p {
+  color: var(--font-colour);
 }
