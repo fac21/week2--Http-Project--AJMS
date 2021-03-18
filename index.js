@@ -37,7 +37,9 @@ fetch(url, {
 
   //Image API
   const pexelApi = '563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d'
-   fetch("https://api.pexels.com/v1/photos/2014422", {
+  const searchTerm = 'panda'
+
+   fetch(`https://api.pexels.com/v1/search?query=${searchTerm}&per_page=1`, {
     method: 'GET',
     headers: {
       "Authorization": pexelApi,
@@ -47,3 +49,6 @@ fetch(url, {
    .then((response) => response.json())
    .then((json) => console.log(json))
    .catch((error) => console.log(error))
+   
+   //Data base manipulation
+
