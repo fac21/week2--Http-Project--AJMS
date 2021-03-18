@@ -54,8 +54,26 @@ main {
 
 .content__output {
   height: 30vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hidden {
   display: none;
+}
+
+/* .content__output--figure {
+  max-width: 70%;
+  max-height: 100%; 
+} */
+
+#content__output--img {
+  max-height: 100%; 
+  object-fit: cover;
+}
+
+.companyName {
+  display: flex;
+  align-self: center;
+  word-wrap: normal;
 }
