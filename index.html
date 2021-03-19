@@ -4,42 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project 2</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <title>Check your Company Name</title>
   </head>
   <body class="flex-column">
-    <header>
+    <header class="flex-row">
       <!-- <nav>
         <ul>
           <il><a href="">About us</a></il>
         </ul>
       </nav> -->
-      <h1>some name</h1>
+      <h1 class="margin-sm">Check your Company Name</h1>
     </header>
     <main class="flex-column">
-      <section class="content content__input">
-        <form class="input-search">
-          <label for="name">Company Name</label>
+      <section class="content content__input flex-row">
+        <form class="input-search flex-row">
+          <label class="margin-sm" for="name">Company Name:</label>
           <input type="text" name="name" id="name" required />
-          <input type="submit" value="Search" class="btn btn__search" />
+          <input
+            type="submit"
+            value="Search"
+            class="btn btn__search margin-sm"
+          />
         </form>
       </section>
 
       <section class="flex-row content content__status">
+        <div class="progress hidden">
+          <div class="progress-value hidden"></div>
+        </div>
         <output>
           <!-- <h2>Response</h2> -->
         </output>
-        <button id="btn__generate" class="btn btn__generate hidden">
+        <button id="btn__generate" class="btn btn__generate hidden margin-sm">
           Generate Logo
         </button>
       </section>
 
       <section class="content content__output">
-        <!-- <figure class = 'content__output--figure'> -->
-        <img id="content__output--img" src="" alt=""/>
-        <!-- </figure> -->
-        <h2 id="companyName" class="companyName"></h2>
-
+        <img id="content__output--img" src="" alt="" />
+        <aside class="flex-row content__output--aside">
+          <h2 id="companyName" class="companyName"></h2>
+        </aside>
       </section>
     </main>
 

@@ -21,23 +21,35 @@ fetch("https://api.company-information.service.gov.uk/company/00000006", {
 //Company name API
 const form = document.querySelector("form");
 const outputText = document.getElementById("companyName");
+const buttonGenerate = document.querySelector(".btn__generate");
 let companyName;
 
 const pexelApi = "563492ad6f91700001000001bf9128825e32458bbc14804fc4881c1d";
 const defaultSearch = "cat";
 const generateLogoBtn = document.getElementById("btn__generate");
+const companyOutput = document.querySelector("output");
 const outputImg = document.getElementById("content__output--img");
+const progressBar = document.querySelector(".progress-value");
+const progressBarOut = document.querySelector(".progress");
+const companyResult = document.createElement("article");
 
 let result;
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
+  if (!buttonGenerate.classList.contains("hidden")) {
+    buttonGenerate.classList.toggle("hidden");
+  }
+
+  companyResult.innerText = "";
+  progressBar.classList.toggle("hidden");
+  progressBarOut.classList.toggle("hidden");
 
   companyName = document.querySelector("#name").value.toUpperCase();
 
   let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
   let encodedString = btoa(api);
   // let proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  // let searchQuery = "FAC"
   let url =`https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
 
   fetch(url, {
@@ -60,13 +72,14 @@ form.addEventListener("submit", (event) => {
 });
 
 function displayCompanyOutput() {
-  const companyOutput = document.querySelector("output");
   companyOutput.innerHTML = "";
-  let companyResult = document.createElement("article");
-  let buttonGenerate = document.querySelector(".btn__generate");
+
+  progressBar.classList.toggle("hidden");
+  progressBarOut.classList.toggle("hidden");
+
   if (result.length === 0) {
-    companyResult.innerText = "Success";
-    buttonGenerate.classList.remove("hidden");
+    companyResult.innerText = "Yay! That name is available.";
+    buttonGenerate.classList.toggle("hidden");
   } else {
     companyResult.innerText = "That name is not available";
   }

@@ -6,6 +6,7 @@
   --gap-lg: 3rem;
   --gap-std: 2rem;
   --gap-sm: 1rem;
+  --main-font: "Lobster";
 }
 
 * {
@@ -18,6 +19,11 @@ body {
   height: 100vh;
   background-color: var(--main-bg);
   row-gap: var(--gap-lg);
+}
+header {
+  height: 20vh;
+  width: 100%;
+  padding-top: 2.5rem;
 }
 
 main {
@@ -46,11 +52,11 @@ main {
 }
 
 .content__input {
-  height: 15vh;
+  min-height: 15vh;
 }
 
 .content__status {
-  height: 15vh;
+  min-height: 15vh;
 }
 
 .content__output {
@@ -59,12 +65,19 @@ main {
   justify-content: space-between;
 }
 
-.hidden {
-  display: none;
+
+
+h1 {
+  font-family: var(--main-font);
+  font-size: 3rem;
+  color: var(--font-colour);
 }
 
-
-h1, label, input p, p, h2 {
+h1,
+label,
+input p,
+p,
+h2 {
   color: var(--font-colour);
 }
 
@@ -74,12 +87,63 @@ h1, label, input p, p, h2 {
 } */
 
 #content__output--img {
-  max-height: 100%;
+  width: 50%;
   object-fit: cover;
+  border: none;
+  outline: none;
 }
 
 .companyName {
+
+}
+
+.margin-sm {
+  margin: var(--gap-sm);
+}
+.btn {
+  border: none;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: green;
+  color: white;
+}
+
+.content__output--aside {
+  width: 50%;
+  height: 100%;
+  padding: 2rem;
+}
+
+footer{
+  margin-bottom: 2rem;
+}
+
+.progress{
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
   display: flex;
-  align-self: center;
-  word-wrap: normal;
+  width: 50%;
+}
+
+
+.progress-value{
+  background-color: green;
+  height: 30px;
+  animation: loading 10s linear infinite;
+  box-shadow: 0 10px 40px -10px #fff;
+  height: 30px;
+  width: 0;
+}
+
+@keyframes loading {
+  from {width: 0;}
+  to {width: 100%;}
+}
+
+.hidden {
+  display: none;
 }
