@@ -6,7 +6,7 @@
   --gap-lg: 3rem;
   --gap-std: 2rem;
   --gap-sm: 1rem;
-  --main-font: "Lobster";
+  --main-font: "Lobster", 'Helvetica', 'Arial';
 }
 
 * {
@@ -65,15 +65,12 @@ main {
   justify-content: space-between;
 }
 
-
-
 h1 {
   font-family: var(--main-font);
   font-size: 3rem;
   color: var(--font-colour);
 }
 
-h1,
 label,
 input p,
 p,
@@ -81,20 +78,11 @@ h2 {
   color: var(--font-colour);
 }
 
-/* .content__output--figure {
-  max-width: 70%;
-  max-height: 100%; 
-} */
-
 #content__output--img {
   width: 50%;
   object-fit: cover;
   border: none;
   outline: none;
-}
-
-.companyName {
-
 }
 
 .margin-sm {
@@ -107,7 +95,7 @@ h2 {
 }
 
 .btn:hover {
-  background-color: green;
+  background-color: var(--font-colour);
   color: white;
 }
 
@@ -128,7 +116,6 @@ footer{
   display: flex;
   width: 50%;
 }
-
 
 .progress-value{
   background-color: green;

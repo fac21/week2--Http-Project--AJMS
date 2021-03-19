@@ -1,23 +1,3 @@
-/* 
-Live version no need of proxy because we have a domain
-
-//Company House Api
-let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
-let encodedString = btoa(api); //built in method for encryption
-
-fetch("https://api.company-information.service.gov.uk/company/00000006", {
-  method: "GET",
-  headers: {
-    Authorization: "Basic " + encodedString,
-    "Content-Type": "application/json",
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json))
-  .catch((error) => console.log(error));
-
-*/
-
 //Company name API
 const form = document.querySelector("form");
 const outputText = document.getElementById("companyName");
@@ -40,7 +20,8 @@ form.addEventListener("submit", (event) => {
   if (!buttonGenerate.classList.contains("hidden")) {
     buttonGenerate.classList.toggle("hidden");
   }
-
+  outputImg.src = '';
+  outputText.innerText = '';
   companyResult.innerText = "";
   progressBar.classList.toggle("hidden");
   progressBarOut.classList.toggle("hidden");
@@ -61,11 +42,9 @@ form.addEventListener("submit", (event) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      // console.log(json.items)
       result = json.items.filter((companyObj) => {
         return companyObj.title.includes(companyName);
       });
-      console.log(result);
       displayCompanyOutput();
     })
     .catch((error) => console.log(error));
