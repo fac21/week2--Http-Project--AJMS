@@ -89,6 +89,8 @@ h2 {
 #content__output--img {
   width: 50%;
   object-fit: cover;
+  border: none;
+  outline: none;
 }
 
 .companyName {
@@ -120,14 +122,10 @@ footer{
 }
 
 .progress{
-  background: rgba(255,255,255,0.1);
   justify-content: flex-start;
-  border-radius: 100px;
   align-items: center;
   position: relative;
-  padding: 0 5px;
   display: flex;
-  height: 40px;
   width: 50%;
 }
 
