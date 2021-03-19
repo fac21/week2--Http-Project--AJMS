@@ -39,9 +39,9 @@ form.addEventListener("submit", (event) => {
 
   if (!buttonGenerate.classList.contains("hidden")) {
     buttonGenerate.classList.toggle("hidden");
-    companyResult.innerText = "";
   }
 
+  companyResult.innerText = "";
   progressBar.classList.toggle("hidden");
   progressBarOut.classList.toggle("hidden");
 
