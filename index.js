@@ -29,7 +29,8 @@ const defaultSearch = "cat";
 const generateLogoBtn = document.getElementById("btn__generate");
 const companyOutput = document.querySelector("output");
 const outputImg = document.getElementById("content__output--img");
-const loadingBar = document.querySelector(".loadingbar");
+const progressBar = document.querySelector(".progress-value");
+const progressBarOut = document.querySelector(".progress");
 const companyResult = document.createElement("article");
 
 let result;
@@ -41,7 +42,8 @@ form.addEventListener("submit", (event) => {
     companyResult.innerText = "";
   }
 
-  loadingBar.classList.toggle("hidden");
+  progressBar.classList.toggle("hidden");
+  progressBarOut.classList.toggle("hidden");
 
   companyName = document.querySelector("#name").value.toUpperCase();
 
@@ -73,8 +75,9 @@ form.addEventListener("submit", (event) => {
 
 function displayCompanyOutput() {
   companyOutput.innerHTML = "";
-  loadingBar.classList.toggle("hidden");
- 
+
+  progressBar.classList.toggle("hidden");
+  progressBarOut.classList.toggle("hidden");
 
   if (result.length === 0) {
     companyResult.innerText = "Yay! That name is available.";

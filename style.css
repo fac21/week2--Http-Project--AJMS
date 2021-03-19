@@ -65,9 +65,7 @@ main {
   justify-content: space-between;
 }
 
-.hidden {
-  display: none;
-}
+
 
 h1 {
   font-family: var(--main-font);
@@ -121,13 +119,33 @@ footer{
   margin-bottom: 2rem;
 }
 
-.loadingbar{
+.progress{
+  background: rgba(255,255,255,0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 40px;
+  width: 50%;
+}
+
+
+.progress-value{
   background-color: green;
   height: 30px;
   animation: loading 10s linear infinite;
+  box-shadow: 0 10px 40px -10px #fff;
+  height: 30px;
+  width: 0;
 }
 
 @keyframes loading {
   from {width: 0;}
-  to {width: 50%;}
+  to {width: 100%;}
+}
+
+.hidden {
+  display: none;
 }
