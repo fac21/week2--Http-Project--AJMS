@@ -120,3 +120,14 @@ h2 {
 footer{
   margin-bottom: 2rem;
 }
+
+.loadingbar{
+  background-color: green;
+  height: 30px;
+  animation: loading 10s linear infinite;
+}
+
+@keyframes loading {
+  from {width: 0;}
+  to {width: 50%;}
+}

@@ -29,6 +29,8 @@ const defaultSearch = "cat";
 const generateLogoBtn = document.getElementById("btn__generate");
 const companyOutput = document.querySelector("output");
 const outputImg = document.getElementById("content__output--img");
+const loadingBar = document.querySelector(".loadingbar");
+const companyResult = document.createElement("article");
 
 let result;
 form.addEventListener("submit", (event) => {
@@ -36,17 +38,19 @@ form.addEventListener("submit", (event) => {
 
   if (!buttonGenerate.classList.contains("hidden")) {
     buttonGenerate.classList.toggle("hidden");
+    companyResult.innerText = "";
   }
 
-  companyOutput.innerText = "Loading...";
+  loadingBar.classList.toggle("hidden");
 
   companyName = document.querySelector("#name").value.toUpperCase();
 
   let api = "d2a36ad2-bc98-45c0-a119-97bee7b4e679:";
   let encodedString = btoa(api);
   let proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  // let searchQuery = "FAC"
-  let url = proxyUrl+`https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
+  let url =
+    proxyUrl +
+    `https://api.companieshouse.gov.uk/search/companies?q=${companyName}`; /* Test is the query from the input field */
 
   fetch(url, {
     method: "GET",
@@ -69,7 +73,8 @@ form.addEventListener("submit", (event) => {
 
 function displayCompanyOutput() {
   companyOutput.innerHTML = "";
-  let companyResult = document.createElement("article");
+  loadingBar.classList.toggle("hidden");
+ 
 
   if (result.length === 0) {
     companyResult.innerText = "Yay! That name is available.";
@@ -123,5 +128,3 @@ const generateLogo = () => {
 };
 
 generateLogoBtn.addEventListener("click", generateLogo);
-
-
